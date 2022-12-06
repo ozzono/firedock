@@ -1,6 +1,13 @@
-FROM ubuntu
+FROM ubuntu:20.04
 
-RUN apt-get update && apt-get install -y firefox ffmpeg mpg123 apulse libpulse0
+ENV TZ=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt update
+RUN apt install -y tzdata
+RUN apt install -y firefox ffmpeg mpg123 apulse libpulse0 libcanberra-dev libcanberra-gtk3-0 packagekit-gtk3-module
+
+
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \
