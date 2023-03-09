@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  firedock:
+    environment:
+      DISPLAY: $DISPLAY
+    stdin_open: true
+    tty: true
+    volumes:
+    - /tmp/.X11-unix/:/tmp/.X11-unix
+    - ~/Downloads/firedock/:/home/developer/downloads
+    container_name: firedock
+    build: .
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 512M
