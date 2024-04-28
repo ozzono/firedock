@@ -4,6 +4,11 @@ How to run firefox from a docker container
 
 ```shell
 docker build -t firedock firedock -m 512m .
+
+sudo xhost +local:docker
+sudo xhost +
+
+
 docker run -it -e DISPLAY=$DISPLAY --name firedock -v /tmp/.X11-unix/:/tmp/.X11-unix -v /home/hugo/Downloads:/home/developer/downloads --net=host -d firedock
 
 ```
