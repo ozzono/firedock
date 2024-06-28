@@ -7,6 +7,9 @@ RUN apt update
 RUN apt install -y tzdata
 RUN apt install -y firefox ffmpeg mpg123 apulse libpulse0 libcanberra-dev libcanberra-gtk3-0 packagekit-gtk3-module
 
+RUN apt install -y curl wget
+RUN wget https://github.com/aclap-dev/vdhcoapp/releases/latest/download/vdhcoapp-linux-x86_64.deb
+RUN apt install ./vdhcoapp-linux-x86_64.deb -y
 
 
 # Replace 1000 with your user / group id
@@ -18,6 +21,6 @@ RUN export uid=1000 gid=1000 && \
     # chmod 0440 /etc/sudoers.d/developer && \
     chown ${uid}:${gid} -R /home/developer
 
-USER developer
-ENV HOME /home/developer
+# USER developer
+# ENV HOME /home/developer
 CMD /usr/bin/firefox

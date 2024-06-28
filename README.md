@@ -9,7 +9,7 @@ sudo xhost +local:docker
 sudo xhost +
 
 
-docker run -it -e DISPLAY=$DISPLAY --name firedock -v /tmp/.X11-unix/:/tmp/.X11-unix -v /home/hugo/Downloads:/home/developer/downloads --net=host -d firedock
+docker run -it -e DISPLAY=$DISPLAY --name firedock -v /tmp/.X11-unix/:/tmp/.X11-unix -v /home/hugo/Downloads/firedock:/root/Downloads --net=host -d firedock
 
 ```
 
