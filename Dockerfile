@@ -13,7 +13,7 @@ RUN mv firefox /opt/
 RUN ln -s /opt/firefox/firefox /usr/local/bin/firefox
 
 RUN mkdir /root/pwd
-RUN wget -q -P /root/temp https://github.com/aclap-dev/vdhcoapp/releases/download/v2.0.19/vdhcoapp-linux-x86_64.deb
+RUN wget -q -P /root/temp https://github.com/aclap-dev/vdhcoapp/releases/download/v2.0.20/vdhcoapp-linux-x86_64.deb
 RUN apt install -y /root/temp/vdhcoapp-linux-x86_64.deb
 
 RUN export uid=1000 gid=1000 && \
